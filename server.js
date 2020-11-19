@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 
 const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
+const playersRouter = require('./routes/players');
 
 const morgan = require('morgan');
 
@@ -16,10 +17,14 @@ require('./config/database');
 app.set('view engine', 'ejs');
 
 // mount middleware
-app.use(mogan('dev'));
+app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
+
+// mount routes
+app.use('/', indexRouter);
+app.use('/players', playersRouter);
 
 // tell the app to listen
 app.listen(port, function() {
