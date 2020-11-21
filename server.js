@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const playersRouter = require('./routes/players');
+const tournamentsRouter = require('./routes/tournaments');
 // const fansRouter = require('./routes/fans');
 
 const morgan = require('morgan');
@@ -40,6 +41,7 @@ app.use(passport.session());
 // mount routes
 app.use('/', indexRouter);
 app.use('/players', playersRouter);
+app.use('/tournaments', tournamentsRouter);
 // app.use('/fans', fansRouter);
 
 // tell the app to listen

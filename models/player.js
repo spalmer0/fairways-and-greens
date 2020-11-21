@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 // create shortcut variable
 const Schema = mongoose.Schema;
 
-// define our tournamentSchema
+// define our memorySchema
+const memorySchema = new Schema({
+    text: String
+}, {
+    timestamps: true
+});
 
 // define our playerSchema
 const playerSchema = new Schema({

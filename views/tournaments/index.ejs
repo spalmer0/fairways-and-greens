@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Players</title>
+    <title>Tournaments</title>
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
@@ -18,11 +18,11 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper purple">
-                <a href="" class="brand-logo left">Players</a>
+                <a href="" class="brand-logo left">Tournaments</a>
                 <ul class="right">
                     <li><a href="/">Home</a></li>
-                    <li>Players</li>
-                    <li><a href="/tournaments">Tournaments</a></li>
+                    <li><a href="/players">Players</a></li>
+                    <li>Tournaments</li>
                     <li>
                         <% if(user) {%>
                         <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
@@ -37,13 +37,14 @@
         </nav>
     </div>
     <main>
-       
-        <% players.forEach(function(player) { %>
+       <!--TODO: make this tournaments-->
+        
+       <% tournaments.forEach(function(tournament) { %>
         <div>
             <!-- TODO: Use flexbox here-->
-            <img src="<%= player.playerImg %>">
-            <h2><%= player.name %></h2>
-            <h3><a href="/players/<%= player._id %>">Details</a></h3>
+            <img src="<%= tournament.logo %>">
+            
+            <h3><a href="/tournaments/<%= tournament._id %>">Details</a></h3>
         </div>
       
 

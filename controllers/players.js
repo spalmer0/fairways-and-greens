@@ -1,10 +1,12 @@
 const Player = require('../models/player');
 
+
 // DB
 require('../config/database');
 
 module.exports = {
-    index
+    index,
+    show
 };
 
 function index(req, res) {
@@ -16,10 +18,33 @@ function index(req, res) {
     });
 }
 
-const players = [
-    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_30925.png', name: 'Dustin Johnson', age: 36, country: 'United States' },
-    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_28237.png', name: 'Rory McIlroy', age: 31, country: 'Northern Ireland' },
-    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_32102.png', name: 'Rickie Fowler', age: 31, country: 'United States' }
+function show(req, res) {
+    Player.findById(req.params.id, function (err, player) {
+        res.render('players/show', {
+            player,
+            user: req.user
+        });
+    });
+}
+
+const players = [{
+        playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_30925.png',
+        name: 'Dustin Johnson',
+        age: 36,
+        country: 'United States'
+    },
+    {
+        playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_28237.png',
+        name: 'Rory McIlroy',
+        age: 31,
+        country: 'Northern Ireland'
+    },
+    {
+        playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_32102.png',
+        name: 'Rickie Fowler',
+        age: 31,
+        country: 'United States'
+    }
 ];
 
 // Player.create(players, function(err, docs) {
