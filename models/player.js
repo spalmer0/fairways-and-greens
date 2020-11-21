@@ -8,10 +8,7 @@ const Schema = mongoose.Schema;
 
 // define our playerSchema
 const playerSchema = new Schema({
-    image: {
-        data: Buffer,
-        contentType: String
-    },
+    playerImg: String,
     name: {
         type: String
     },

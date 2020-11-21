@@ -36,16 +36,18 @@
             </div>
         </nav>
     </div>
-    <tbody>
-        <% players.forEach(function(player) {%>
-        <tr>
-            <td><%= player.image %></td>
-            <td><%= player.name %></td>
-            <!-- TODO: Insert reference to show page here-->
-        </tr>
+    <main>
+       
+        <% players.forEach(function(player) { %>
+        <div>
+            <!-- TODO: Use flexbox here-->
+            <img src="<%= player.playerImg %>">
+            <h2><%= player.name %></h2>
+        </div>
+      
 
         <% });%>
-    </tbody>
+    <main>
     
 </body>
 

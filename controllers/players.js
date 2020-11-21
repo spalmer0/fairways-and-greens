@@ -17,9 +17,9 @@ function index(req, res) {
 }
 
 const players = [
-    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_30925.png', name: 'Dustin Johnson', age: 36, country: 'United States' },
-    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_28237.png', name: 'Rory McIlroy', age: 31, country: 'Northern Ireland' },
-    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_32102.png', name: 'Rickie Fowler', age: 31, country: 'United States' }
+    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_30925.png', name: 'Dustin Johnson', age: 36, country: 'United States' },
+    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_28237.png', name: 'Rory McIlroy', age: 31, country: 'Northern Ireland' },
+    {playerImg: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_32102.png', name: 'Rickie Fowler', age: 31, country: 'United States' }
 ];
 
 // Player.create(players, function(err, docs) {
