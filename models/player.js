@@ -8,22 +8,29 @@ const Schema = mongoose.Schema;
 
 // define our playerSchema
 const playerSchema = new Schema({
+    image: {
+        data: Buffer,
+        contentType: String
+    },
     name: {
         type: String
     },
-    dob: {
-        type: Date
+    age: {
+        type: Number
     },
     country: {
         type: String
     },
-    winNumber: {
-        type: Number
-    },
-    tournamentsWon: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Tournament'
-    }]
+    // winNumber: {
+    //     type: Number
+    // },
+    // tournamentsWon: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Tournament'
+    // }]
 }, {timestamps: true });
+
+
+
 
 module.exports = mongoose.model('Player', playerSchema);

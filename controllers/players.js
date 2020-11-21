@@ -1,9 +1,35 @@
 const Player = require('../models/player');
 
+// DB
+require('../config/database');
+
 module.exports = {
     index
 };
 
 function index(req, res) {
-    res.render('players/index');
+    Player.find({}, function (err, players) {
+        res.render('players/index', {
+            user: req.user,
+            players
+        });
+    });
 }
+
+const players = [
+    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_30925.png', name: 'Dustin Johnson', age: 36, country: 'United States' },
+    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_28237.png', name: 'Rory McIlroy', age: 31, country: 'Northern Ireland' },
+    {image: 'https://pga-tour-res.cloudinary.com/image/upload/c_fill,d_headshots_default.png,f_auto,g_face:center,h_350,q_auto,w_280/headshots_32102.png', name: 'Rickie Fowler', age: 31, country: 'United States' }
+];
+
+// Player.create(players, function(err, docs) {
+//     console.log(docs);
+// });
+
+// Player.deleteMany({}, function(err, response) {
+//     console.log(response);
+// });
+
+// Player.find({}, function(err, docs) {
+//     console.log(docs);
+// });

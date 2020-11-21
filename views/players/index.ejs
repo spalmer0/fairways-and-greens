@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Players</title>
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
 </head>
-<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Players</a></li>
-        <li><a href="/tournaments">Tournaments</a></li>
-        <li><a href="#">Log In</a></li>
-    </ul>
-</nav>
+
 <body>
-   <h1>This is the Players Page</h1> 
-   <p>Welcome!</p>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper purple">
+                <a href="" class="brand-logo left">Players</a>
+                <ul class="right">
+                    <li><a href="/">Home</a></li>
+                    <li>Players</li>
+                    <li><a href="#">Tournaments</a></li>
+                    <li>
+                        <% if(user) {%>
+                        <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
+
+                        <% } else { %>
+                        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login With Google</a>
+                        <% } %>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <tbody>
+        <% players.forEach(function(player) {%>
+        <tr>
+            <td><%= player.image %></td>
+            <td><%= player.name %></td>
+            <!-- TODO: Insert reference to show page here-->
+        </tr>
+
+        <% });%>
+    </tbody>
+    
 </body>
+
 </html>

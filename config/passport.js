@@ -1,5 +1,5 @@
 const passport = require('passport');
-const User = require('../models/user');
+const Fan = require('../models/fan');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.use(new GoogleStrategy({
@@ -8,34 +8,34 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 }, function (accessToken, refreshToken, profile, cb) {
     console.log(profile);
-    // a user has logged in to Google
-    User.findOne({
+    // a fan has logged in to Google
+    Fan.findOne({
         googleId: profile.id
-    }, function (err, user) {
+    }, function (err, fan) {
         if (err) return cb(err);
-        if (user) {
-            return cb(null, user) // user will be added to session (logged into our app)
+        if (fan) {
+            return cb(null, fan) // fan will be added to session (logged into our app)
         } else {
-            const newUser = new User({
+            const newFan = new Fan({
                 name: profile.displayName,
                 email: profile.emails[0].value,
                 googleId: profile.id
             });
 
-            newUser.save(function (err) {
+            newFan.save(function (err) {
                 if (err) return cb(err);
-                return cb(null, user);
+                return cb(null, fan);
             });
         }
     })
 }));
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
+passport.serializeUser(function(fan, done) {
+    done(null, fan);
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user)
+    Fan.findById(id, function(err, fan) {
+        done(err, fan)
     });
 });
