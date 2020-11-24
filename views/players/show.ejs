@@ -37,7 +37,7 @@
         </nav>
     </div>
     <main>
-       
+
         <section id="show-page">
             <img src="<%= player.playerImg %>">
             <div>Name: </div>
@@ -47,9 +47,43 @@
             <div>Country: </div>
             <div><%= player.country %></div>
         </section>
-       
-    <main>
-    
+        <div>
+            <div class="row">
+                <div id="fans" class="col s12">
+                    <% fans.forEach(function(user) { %>
+                    <div class="card green">
+                        <div class="card-content white-text">
+                            <div>
+                                <span class="card-title">
+                                    <i class="small material-icons">perm_identity</i>
+                                    <span class="fan-name"><%= fan.name %></span>
+
+                                </span>
+                            </div>
+                            <ul class="collection">
+                                <% fan.memories.forEach(function(memory) { %>
+                                <li class="collection-item blue-grey-text text-darken-2"><%= memory.text %></li>
+                                <% }) %>
+                            </ul>
+                            <% if(fan._id.equals(user && user._id)) { %>
+                            <div class="card-action">
+                                <form action="/players/<%= player._id %>" method="post">
+                                    <input type="text" name="text">
+                                    <button type="submit">Add Memory</button>
+                                </form>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+
+
+        </div>
+
+        <main>
+
 </body>
 
 </html>

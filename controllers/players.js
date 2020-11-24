@@ -1,4 +1,5 @@
 const Player = require('../models/player');
+const fans = require('../models/fan');
 
 
 // DB
@@ -6,7 +7,8 @@ require('../config/database');
 
 module.exports = {
     index,
-    show
+    show,
+    addMem
 };
 
 function index(req, res) {
@@ -18,12 +20,21 @@ function index(req, res) {
     });
 }
 
+
 function show(req, res) {
     Player.findById(req.params.id, function (err, player) {
         res.render('players/show', {
             player,
-            user: req.user
+            user: req.user,
+            fans
         });
+    });
+}
+
+function addMem(req, res) {
+    req.user.memories.push(req.body);
+    req.user.save(function(err) {
+        res.redirect('/players/:id');
     });
 }
 

@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 // create shortcut variable
 const Schema = mongoose.Schema;
 
+const userSchema = new Schema ({
+    
+})
 // define our memorySchema
 const memorySchema = new Schema({
     text: String
@@ -23,6 +26,7 @@ const playerSchema = new Schema({
     country: {
         type: String
     },
+    memories: [memorySchema]
     // winNumber: {
     //     type: Number
     // },
