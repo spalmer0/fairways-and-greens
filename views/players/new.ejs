@@ -40,16 +40,18 @@
     </div>
     <main>
        
-        <% players.forEach(function(player) { %>
-        <div>
-            <!-- TODO: Use flexbox here-->
-            <img src="<%= player.playerImg %>">
-            <h2><%= player.name %></h2>
-            <h3><a href="/players/<%= player._id %>">Details</a></h3>
-        </div>
-      
-
-        <% });%>
+        <h1>Test New Player</h1>
+        <form id="new-form" action="/players" method="POST">
+            <label>URL for Player Image</label>
+            <input type="text" name="playerImg">
+            <label>Name:</label>
+            <input type="text" name="name">
+            <label>Age:</label>
+            <input type="number" name="age" max=99>
+            <label>Country:</label>
+            <input type="text" name="country">
+            <input type="submit" value="Add Player">
+          </form>
     <main>
     
 </body>

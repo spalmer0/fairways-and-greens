@@ -1,18 +1,9 @@
 // require our modules
 const mongoose = require('mongoose');
+const tournaments = require('../controllers/tournaments');
 
 // create shortcut variable
 const Schema = mongoose.Schema;
-
-const userSchema = new Schema ({
-    
-})
-// define our memorySchema
-const memorySchema = new Schema({
-    text: String
-}, {
-    timestamps: true
-});
 
 // define our playerSchema
 const playerSchema = new Schema({
@@ -26,17 +17,12 @@ const playerSchema = new Schema({
     country: {
         type: String
     },
-    memories: [memorySchema]
-    // winNumber: {
-    //     type: Number
-    // },
-    // tournamentsWon: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Tournament'
-    // }]
+    majors: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Tournament'
+    }], 
+    // wins: tournamentsWon.length
 }, {timestamps: true });
-
-
 
 
 module.exports = mongoose.model('Player', playerSchema);

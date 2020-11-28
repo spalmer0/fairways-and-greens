@@ -18,11 +18,13 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper purple">
-                <a href="" class="brand-logo left">Tournaments</a>
+                <a href="" class="brand-logo left">Fairways and Greens</a>
                 <ul class="right">
                     <li><a href="/">Home</a></li>
                     <li><a href="/players">Players</a></li>
-                    <li>Tournaments</li>
+                    <li><a href="/players/new">Add Player</a></li>
+                    <li><a href="/tournaments">Tournaments</a></li>
+                    <li><a href="/tournaments/new">Add Tournament</a></li>
                     <li>
                         <% if(user) {%>
                         <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
@@ -42,8 +44,10 @@
        <% tournaments.forEach(function(tournament) { %>
         <div>
             <!-- TODO: Use flexbox here-->
-            <img src="<%= tournament.logo %>">
-            
+            <img src="<%= tournament.trophy %>">
+            <h3><%= tournament.name %></h3>
+            <h3><%= tournament.champion %></h3>
+            <h3><%= tournament.year %></h3>
             <h3><a href="/tournaments/<%= tournament._id %>">Details</a></h3>
         </div>
       
