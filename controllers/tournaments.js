@@ -5,7 +5,9 @@ require('../config/database');
 
 module.exports = {
     index,
-    show
+    show,
+    new: newTournament,
+    create
 };
 
 function index(req, res) {
@@ -18,31 +20,87 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Tournament.findById(req.params.id, function (err, tournament) {
+    Tournament.findById(req.params.id, function (err, tournaments) {
         res.render('tournaments/show', {
-            tournament,
+            tournaments,
             user: req.user
         });
     });
 }
 
+function newTournament(req, res) {
+    Tournament.find({}, function(err, tournaments) {
+        res.render('tournaments/new', {
+            user: req.user,
+            tournaments
+        });
+    })
+}
+
+function create(req, res) {
+    
+    const tournament = new Tournament(req.body);
+    tournament.save(function (err) {
+      if (err) return res.redirect('/tournaments/new');
+      console.log(tournament);
+      res.redirect(`/tournaments/${tournament._id}`);
+    });
+  }
+
+
 const tournaments = [{
     name: 'The Masters',
-    logo: 'https://wpde.com/resources/media/261b8725-ad17-452d-a079-b4f79ac51903-large16x9_MastersLogo.jpg?1584108847895',
+    year: '2020',
+    champion: 'Dustin Johnson',
+    trophy: 'https://pga.com/_img/masters-trophy_0_0.jpg'
 
 }, {
     name: 'PGA Championship',
-    logo: 'https://images.ctfassets.net/56u5qdsjym8c/4KdUppehLwJc8FbtDfoFw9/467f82306f4eb3f4a7209e11742c0e46/PGA_Championshio_2020.jpg',
-
+    year: '2020',
+    champion: 'Colin Morikawa',
+    trophy: 'https://www.hamptons.com/gallery/article/1078f.jpg'
 }, {
     name: 'The U.S. Open',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/a/a8/2020_U.S._Open_%28golf%29_logo.png',
+    year: '2020',
+    champion: 'Bryson DeChambeau',
+    trophy: 'https://mediacenter.usga.org/image/us+open+trophy.jpg'
+}, {
+    name: 'The Masters',
+    year: '2019',
+    champion: 'Tiger Woods',
+    trophy: 'https://pga.com/_img/masters-trophy_0_0.jpg'
 
 }, {
+    name: 'PGA Championship',
+    year: '2019',
+    champion: 'Brooks Koepka',
+    trophy: 'https://www.hamptons.com/gallery/article/1078f.jpg'
+}, {
+    name: 'The U.S. Open',
+    year: '2019',
+    champion: 'Gary Woodland',
+    trophy: 'https://mediacenter.usga.org/image/us+open+trophy.jpg'
+}, {
     name: 'The Open Championship',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/d/d5/Logo_of_The_Open_Championship.png',
-
-}];
+    year: '2019',
+    champion: 'Shane Lowry',
+    trophy: 'https://www.impacttrophies.co.uk/content/images/thumbs/0021502_silver-st-andrews-claret-jug.jpeg'
+}, {
+    name: 'The U.S. Open',
+    year: '2018',
+    champion: 'Brooks Koepka',
+    trophy: 'https://mediacenter.usga.org/image/us+open+trophy.jpg'
+}, {
+    name: 'The U.S. Open',
+    year: '2017',
+    champion: 'Brooks Koepka',
+    trophy: 'https://mediacenter.usga.org/image/us+open+trophy.jpg'
+}, {
+    name: 'The U.S. Open',
+    year: '2016',
+    champion: 'Dustin Johnson',
+    trophy: 'https://mediacenter.usga.org/image/us+open+trophy.jpg'
+}   ];
 
 
 
@@ -54,6 +112,6 @@ const tournaments = [{
 //     console.log(response);
 // });
 
-// Tournament.find({}, function(err, docs) {
+// Tournament.find({'champion': 'Dustin Johnson'}, function(err, docs) {
 //     console.log(docs);
 // });

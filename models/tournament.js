@@ -7,10 +7,10 @@ const Schema = mongoose.Schema;
 // define our tournamentSchema
 const tournamentSchema = new Schema({
     name: String,
-    logo: String,
-    // location: String,
-    // year: String
-    // TODO: Insert trophy image
+    year: String,
+    champion: String,
+    trophy: String   
+    
 })
 
 

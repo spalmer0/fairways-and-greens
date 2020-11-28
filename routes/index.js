@@ -31,7 +31,6 @@ router.get('/', function (req, res) {
 // require the controller module
 const indexCtrl = require('../controllers/index');
 
-
 router.get('/', indexCtrl.index);
 
 // export the router object

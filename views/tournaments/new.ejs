@@ -38,20 +38,16 @@
             </div>
         </nav>
     </div>
-    <main>
-       
-        <% players.forEach(function(player) { %>
-        <div>
-            <!-- TODO: Use flexbox here-->
-            <img src="<%= player.playerImg %>">
-            <h2><%= player.name %></h2>
-            <h3><a href="/players/<%= player._id %>">Details</a></h3>
-        </div>
-      
-
-        <% });%>
-    <main>
-    
+  <form id="new-form" action="/tournaments" method="POST">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <label>Year:</label>
+    <input type="text" name="year">
+    <label>Champion:</label>
+    <input type="text" name="champion">
+    <label>URL for Trophy Image:</label>
+    <input type="text" name="trophy">
+    <input type="submit" value="Add Tournament">
+  </form> 
 </body>
-
 </html>

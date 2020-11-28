@@ -18,11 +18,13 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper purple">
-                <a href="" class="brand-logo left">Players</a>
+                <a href="" class="brand-logo left">Fairways and Greens</a>
                 <ul class="right">
                     <li><a href="/">Home</a></li>
                     <li><a href="/players">Players</a></li>
+                    <li><a href="/players/new">Add Player</a></li>
                     <li><a href="/tournaments">Tournaments</a></li>
+                    <li><a href="/tournaments/new">Add Tournament</a></li>
                     <li>
                         <% if(user) {%>
                         <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
@@ -46,41 +48,21 @@
             <div><%= player.age %></div>
             <div>Country: </div>
             <div><%= player.country %></div>
+            <div>Major Victories: </div>
+            <% tournaments.forEach(function(tournament) { %>
+                <img src="<%= tournament.trophy %>">
+                <div><%= tournament.name %></div>
+                <div><%= tournament.year %></div>
+         <% }); %>
+            
         </section>
-        <div>
-            <div class="row">
-                <div id="fans" class="col s12">
-                    <% fans.forEach(function(user) { %>
-                    <div class="card green">
-                        <div class="card-content white-text">
-                            <div>
-                                <span class="card-title">
-                                    <i class="small material-icons">perm_identity</i>
-                                    <span class="fan-name"><%= fan.name %></span>
 
-                                </span>
-                            </div>
-                            <ul class="collection">
-                                <% fan.memories.forEach(function(memory) { %>
-                                <li class="collection-item blue-grey-text text-darken-2"><%= memory.text %></li>
-                                <% }) %>
-                            </ul>
-                            <% if(fan._id.equals(user && user._id)) { %>
-                            <div class="card-action">
-                                <form action="/players/<%= player._id %>" method="post">
-                                    <input type="text" name="text">
-                                    <button type="submit">Add Memory</button>
-                                </form>
-                            </div>
-                            <% } %>
-                        </div>
-                    </div>
-                    <% }) %>
-                </div>
-            </div>
-
-
-        </div>
+        <ul>
+            
+        </ul>
+        
+        
+        <img src="https://webstockreview.net/images/bookshelf-clipart-empty-bookshelf-18.png" alt="trophy case">
 
         <main>
 
