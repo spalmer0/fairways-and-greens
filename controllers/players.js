@@ -88,27 +88,6 @@ function update(req, res) {
 }
 
 
-//     Player.findByIdAndUpdate(req.params.id, {
-//         name: 'name',
-//         age: 'age',
-//         country: 'country'
-//     }, {
-//         new: true
-//     }, function (err, player) {
-//         console.log(player);
-//     });
-// }
-
-//         player.save(function (err) {
-//             // one way to handle errors
-//             if (err) return res.redirect(`/players/${player._id}/update`);
-//             console.log(player);
-//             // for now, redirect right back to new.ejs
-//             res.redirect(`/players/${player._id}`);
-//         });
-//     });
-// }
-
 
 
 
