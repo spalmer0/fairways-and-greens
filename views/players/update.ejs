@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Tournaments</title>
+    <title>Players</title>
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
@@ -39,19 +39,18 @@
         </nav>
     </div>
     <main>
-       <!--TODO: make this tournaments-->
-        
-       <% tournaments.forEach(function(tournament) { %>
-        <div>
-            <!-- TODO: Use flexbox here-->
-            <h3><%= tournament.name %></h3>
-            <h3><%= tournament.year %></h3>
-            <h3><%= tournament.champion %></h3>
-            <h3><a href="/tournaments/<%= tournament._id %>">Details</a></h3>
-        </div>
-      
-
-        <% });%>
+       <h1>Edit Information for <%= player.name %></h1>
+        <img src="<%= player.playerImg %>">
+        <form id="update-form" action="/players/<%= player._id %>?_method=PUT" method="POST">
+            
+            <label>Name:</label>
+            <input type="text" name="name" value="<%= player.name %>">
+            <label>Age:</label>
+            <input type="number" name="age" max=99 value="<%= player.age %>">
+            <label>Country:</label>
+            <input type="text" name="country" value="<%= player.country %>">
+            <input type="submit" value="Update Player">
+          </form>
     <main>
     
 </body>
