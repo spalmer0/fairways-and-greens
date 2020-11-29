@@ -10,7 +10,9 @@ module.exports = {
     index,
     show,
     new: newPlayer,
-    create
+    create,
+    updatePlayer,
+    update
 };
 
 function index(req, res) {
@@ -29,9 +31,10 @@ function show(req, res) {
             },
             function (err, tournaments) {
                 res.render('players/show', {
-                    player,
+                    playerId: req.params.id,
                     user: req.user,
-                    tournaments
+                    tournaments,
+                    player
                 });
 
             }
@@ -41,27 +44,71 @@ function show(req, res) {
 
 function newPlayer(req, res) {
     res.render('players/new', {
-        user: req.user,
-        players
+        user: req.user
     });
-  }
+}
 
-  function create(req, res) {
-    // convert nowShowing's checkbox of nothing or "on" to boolean
-    // req.body.nowShowing = !!req.body.nowShowing;
-  
-    // for (let key in req.body) {
-    //   if (req.body[key] === '') delete req.body[key];
-    // }
+function create(req, res) {
+
     const player = new Player(req.body);
     player.save(function (err) {
-      // one way to handle errors
-      if (err) return res.redirect('/players/new');
-      console.log(player);
-      // for now, redirect right back to new.ejs
-      res.redirect(`/players/${player._id}`);
+        // one way to handle errors
+        if (err) return res.redirect('/players/new');
+        console.log(player);
+        // for now, redirect right back to new.ejs
+        res.redirect(`/players/${player._id}`);
     });
-  }
+}
+
+function updatePlayer(req, res) {
+    // find the original player object
+    // render a view with the original player object and an edit form
+    Player.findById(req.params.id, function (err, player) {
+        res.render('players/update', {
+            user: req.user,
+            player
+        });
+    });
+}
+
+function update(req, res) {
+    Player.findByIdAndUpdate(req.params.id, req.body,
+        // name: req.body,
+        // age: req.body,
+        // country: req.body}, 
+            function(err, player) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(player);
+            }
+                
+        });
+    res.redirect(`/players/${req.params.id}`);
+}
+
+
+//     Player.findByIdAndUpdate(req.params.id, {
+//         name: 'name',
+//         age: 'age',
+//         country: 'country'
+//     }, {
+//         new: true
+//     }, function (err, player) {
+//         console.log(player);
+//     });
+// }
+
+//         player.save(function (err) {
+//             // one way to handle errors
+//             if (err) return res.redirect(`/players/${player._id}/update`);
+//             console.log(player);
+//             // for now, redirect right back to new.ejs
+//             res.redirect(`/players/${player._id}`);
+//         });
+//     });
+// }
+
 
 
 

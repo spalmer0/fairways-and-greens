@@ -15,8 +15,12 @@ function isLoggedIn(req, res, next) {
 // define our routes
 router.get('/', playersCtrl.index);
 router.get('/new', playersCtrl.new);
+router.get('/:id/update', playersCtrl.updatePlayer);
 router.get('/:id', playersCtrl.show);
 router.post('/', playersCtrl.create)
+router.put('/:id', playersCtrl.update);
+
+
 
 // export the router object
 module.exports = router;    

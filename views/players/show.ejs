@@ -42,6 +42,11 @@
 
         <section id="show-page">
             <img src="<%= player.playerImg %>">
+            <a href="/players/<%= player._id %>/update">Update Player Information</a>
+            <!-- <form action="/players/player._id/update">
+                <input type="submit" value="Update Player Information" />
+            </form> -->
+            
             <div>Name: </div>
             <div><%= player.name %></div>
             <div>Age: </div>
@@ -57,10 +62,7 @@
             
         </section>
 
-        <ul>
             
-        </ul>
-        
         
         <img src="https://webstockreview.net/images/bookshelf-clipart-empty-bookshelf-18.png" alt="trophy case">
 

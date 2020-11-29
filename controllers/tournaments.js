@@ -20,9 +20,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Tournament.findById(req.params.id, function (err, tournaments) {
+    Tournament.findById(req.params.id, function (err, tournament) {
         res.render('tournaments/show', {
-            tournaments,
+            tournament,
             user: req.user
         });
     });
@@ -34,7 +34,7 @@ function newTournament(req, res) {
             user: req.user,
             tournaments
         });
-    })
+    }) 
 }
 
 function create(req, res) {
