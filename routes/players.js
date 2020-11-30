@@ -6,6 +6,7 @@ const router = express.Router();
 
 // require players controller
 const playersCtrl = require('../controllers/players');
+const player = require('../models/player');
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next();
@@ -19,6 +20,7 @@ router.get('/:id/update', playersCtrl.updatePlayer);
 router.get('/:id', playersCtrl.show);
 router.post('/', playersCtrl.create)
 router.put('/:id', playersCtrl.update);
+router.delete('/:id', playersCtrl.delete);
 
 
 

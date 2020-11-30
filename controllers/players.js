@@ -12,7 +12,8 @@ module.exports = {
     new: newPlayer,
     create,
     updatePlayer,
-    update
+    update,
+    delete: deletePlayer
 };
 
 function index(req, res) {
@@ -73,21 +74,31 @@ function updatePlayer(req, res) {
 
 function update(req, res) {
     Player.findByIdAndUpdate(req.params.id, req.body,
-        // name: req.body,
-        // age: req.body,
-        // country: req.body}, 
-            function(err, player) {
+
+        function (err, player) {
             if (err) {
                 console.log(err);
             } else {
                 console.log(player);
             }
-                
+
         });
     res.redirect(`/players/${req.params.id}`);
 }
 
+function deletePlayer(req, res) {
+    //let warning = global.confirm(`Are you sure you want to delete this player? This action cannot be undone.`) 
+    Player.findByIdAndDelete(req.params.id, function (err, player) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(player);
+        }
+    });
 
+    res.redirect('/players');
+
+}
 
 
 

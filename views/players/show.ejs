@@ -22,9 +22,13 @@
                 <ul class="right">
                     <li><a href="/">Home</a></li>
                     <li><a href="/players">Players</a></li>
+                    <% if(user) {%>
                     <li><a href="/players/new">Add Player</a></li>
+                    <% } %>
                     <li><a href="/tournaments">Tournaments</a></li>
+                    <% if(user) {%>
                     <li><a href="/tournaments/new">Add Tournament</a></li>
+                    <% } %>
                     <li>
                         <% if(user) {%>
                         <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
@@ -43,10 +47,7 @@
         <section id="show-page">
             <img src="<%= player.playerImg %>">
             <a href="/players/<%= player._id %>/update">Update Player Information</a>
-            <!-- <form action="/players/player._id/update">
-                <input type="submit" value="Update Player Information" />
-            </form> -->
-            
+                        
             <div>Name: </div>
             <div><%= player.name %></div>
             <div>Age: </div>
