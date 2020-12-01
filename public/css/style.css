@@ -14,6 +14,7 @@
 
 .amen {
     color: white;
+    margin: 10px;
 }
 
 .player-container {
@@ -82,6 +83,10 @@
     max-width: 100px;
     border-radius: 10px;
     
+}
+
+.plyr-img {
+    border-radius: 20px;
 }
 
 .plyr-img:hover {
