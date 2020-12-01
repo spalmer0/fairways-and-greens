@@ -22,7 +22,11 @@ I enjoy following golf, and Dustin Johnson recently won the Masters.  I wanted t
 This project is in its "mvp" state.  I hope to incorporate several additional features in the future.
 
 ## Screenshots
-
+![image](https://user-images.githubusercontent.com/34992505/100804660-46a5a200-33fb-11eb-8009-bf338bf4402b.png)
+![image](https://user-images.githubusercontent.com/34992505/100804711-58874500-33fb-11eb-81ef-05637a44fdb0.png)
+![image](https://user-images.githubusercontent.com/34992505/100804757-676df780-33fb-11eb-8511-5d317d4eaa3d.png)
+![image](https://user-images.githubusercontent.com/34992505/100804786-72288c80-33fb-11eb-8a57-f30b4d47f372.png)
+![image](https://user-images.githubusercontent.com/34992505/100804805-7ce32180-33fb-11eb-8166-edc8a53ca8a4.png)
 
 ## Features
 - Role-based access control through OAuth
