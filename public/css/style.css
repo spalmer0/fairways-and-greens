@@ -34,17 +34,30 @@
 }
 
 .show-container {
-    margin-left: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    border: solid 10px whitesmoke;
+    
+    /* margin: 10px;
     background-color:white;
-    font-size: 20px;
+    font-size: 20px; */
 }
 
-.headshot {
+/* .headshot {
     margin: 10px;
     border-radius: 20px;
     border: solid 10px whitesmoke;
     width: 40px;
-}
+} */
 
 #show-page {
     margin-bottom: 20px ;  
@@ -71,8 +84,8 @@
 } */
 
 .trophy {
-    max-height: 200px;
-    max-width: 200px;
+    height: 40px;
+    width: 40px;
     border-radius: 20px;
     
 }
