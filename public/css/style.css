@@ -2,13 +2,10 @@
     box-sizing: border-box;
     margin: 0;
 }
-body {
-    background-color: rgb(95,104,61);
-}
 
 .swilcan {
     
-    /* background-image: url("/images/swilcan.jpg"); */
+    background-image: url("/images/swilcan.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -45,7 +42,7 @@ body {
     margin-bottom: 50px;
 }
 
-#new-form {
+.add {
     color: black;
 }
 /* .trophy-case {

@@ -17,44 +17,39 @@
 
 
 <body>
-    
-    <div>
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper #1b5e20 green darken-4">
-                    <a href="" class="brand-logo left">Fairways and Greens</a>
-                    <ul class="right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/players">Players</a></li>
-                        <% if(user) {%>
-                        <li><a href="/players/new">Add Player</a></li>
-                        <% } %>
-                        <li><a href="/tournaments">Tournaments</a></li>
-                        <% if(user) {%>
-                        <li><a href="/tournaments/new">Add Tournament</a></li>
-                        <% } %>
-                        <li>
-                            <% if(user) {%>
-                            <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
-    
-                            <% } else { %>
-                            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login With Google</a>
-                            <% } %>
-                        </li>
-    
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-    
 
-    </div>
-</div>
 
-<div class="swilcan">
-    <img src="/images/swilcan.jpg">
-</div>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper #1b5e20 green darken-4">
+                <a href="" class="brand-logo left">Fairways and Greens</a>
+                <ul class="right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/players">Players</a></li>
+                    <% if(user) {%>
+                    <li><a href="/players/new">Add Player</a></li>
+                    <% } %>
+                    <li><a href="/tournaments">Tournaments</a></li>
+                    <% if(user) {%>
+                    <li><a href="/tournaments/new">Add Tournament</a></li>
+                    <% } %>
+                    <li>
+                        <% if(user) {%>
+                        <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
+
+                        <% } else { %>
+                        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login With Google</a>
+                        <% } %>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="swilcan">
+        <!-- <img src="/images/swilcan.jpg"> -->
+    </div>
 
 
 
