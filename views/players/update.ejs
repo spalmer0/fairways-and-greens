@@ -44,7 +44,7 @@
     </div>
     <main>
        <h3>Edit Information for <%= player.name %></h3>
-        <img class="plyr-img" src="<%= player.playerImg %>">
+        <img class="update-img" src="<%= player.playerImg %>">
         <form id="update-form" action="/players/<%= player._id %>?_method=PUT" method="POST">
             
             <label>Name:</label>

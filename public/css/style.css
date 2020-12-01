@@ -93,6 +93,10 @@
     box-shadow: 1px 1px 50px 1px darkgreen;
 }
 
+.update-img {
+    border-radius: 20px;
+}
+
 table {
     font-size: 20px;
 }
