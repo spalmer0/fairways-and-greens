@@ -11,6 +11,16 @@
     <!-- JavaScript for Materialize -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <style>
+        body {
+            background-image: url("/images/kiawah.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
 
 </head>
 
@@ -45,9 +55,11 @@
     <main>
         
         <section id="show-page">
-            <img src="<%= player.playerImg %>">
+            <div class="headshot">
+                <img src="<%= player.playerImg %>">
+            </div>
             <br>
-            <a href="/players/<%= player._id %>/update">Update Player Information</a>
+            <h3><a href="/players/<%= player._id %>/update">Update Player Information</a></h3>
 
             <div>Name: </div>
             <div><%= player.name %></div>
