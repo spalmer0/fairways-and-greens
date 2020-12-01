@@ -2,6 +2,9 @@
     box-sizing: border-box;
     margin: 0;
 }
+body {
+    background-color: rgb(95,104,61);
+}
 
 .swilcan {
     
@@ -31,11 +34,19 @@
     align-items: center;
     width: 600px;
     height: 400px;
-    opacity: 1;
+    
 }
 
 #show-page {
     margin-bottom: 20px ;  
+}
+
+#tourney-list {
+    margin-bottom: 50px;
+}
+
+#new-form {
+    color: black;
 }
 /* .trophy-case {
     position: relative;
