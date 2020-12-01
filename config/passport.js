@@ -24,7 +24,7 @@ passport.use(new GoogleStrategy({
 
             newFan.save(function (err) {
                 if (err) return cb(err);
-                return cb(null, fan);
+                return cb(null, fan.id);
             });
         }
     })
