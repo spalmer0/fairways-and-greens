@@ -32,6 +32,9 @@
     width: 600px;
     height: 400px;
     background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    border: solid 1px whitesmoke;
     
 }
 
