@@ -17,7 +17,7 @@
 <body>
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper purple">
+            <div class="nav-wrapper #1b5e20 green darken-4">
                 <a href="" class="brand-logo left">Fairways and Greens</a>
                 <ul class="right">
                     <li><a href="/">Home</a></li>
@@ -45,16 +45,17 @@
     <main>
 
         <% players.forEach(function(player) { %>
-        <div>
-            <!-- TODO: Use flexbox here-->
-            <img src="<%= player.playerImg %>">
-            <h2><%= player.name %></h2>
-            <h3><a href="/players/<%= player._id %>">Details</a></h3>
-            <% if(user) {%>
-            <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete this Player</button>
-            </form>
-            <% } %>
+        <div class="player-container">
+            <div class="player-flex">
+                <img src="<%= player.playerImg %>">
+                <h3><%= player.name %></h2>
+                <h4><a href="/players/<%= player._id %>">Details</a></h3>
+                <% if(user) {%>
+                <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete this Player</button>
+                </form>
+                <% } %>
+            </div>
         </div>
 
 
@@ -62,5 +63,8 @@
         <main>
 
 </body>
+<div class="footer">
+    <p>&copy; 2020 Stuart Palmer All Rights Reserved</p>
+</div>
 
 </html>
