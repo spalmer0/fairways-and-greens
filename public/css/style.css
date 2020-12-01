@@ -23,7 +23,10 @@
     width: 600px;
     height: 400px;
     opacity: 1;
-    
+}
+
+#show-page {
+    margin-bottom: 20px ;  
 }
 /* .trophy-case {
     position: relative;
