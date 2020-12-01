@@ -43,11 +43,12 @@
         </nav>
     </div>
     <main>
-
+        <h1>Player Details for <%= player.name %></h1>
         <section id="show-page">
             <img src="<%= player.playerImg %>">
+            <br>
             <a href="/players/<%= player._id %>/update">Update Player Information</a>
-                        
+
             <div>Name: </div>
             <div><%= player.name %></div>
             <div>Age: </div>
@@ -56,17 +57,16 @@
             <div><%= player.country %></div>
             <div>Major Victories: </div>
             <% tournaments.forEach(function(tournament) { %>
-                <img src="<%= tournament.trophy %>">
+            <div class="trophy-info">
+                <img class="trophy" src="<%= tournament.trophy %>">
                 <div><%= tournament.name %></div>
                 <div><%= tournament.year %></div>
-         <% }); %>
-            
+            </div>
+            <% }); %>
+
+            <!-- <img class="trophy-case" src="https://webstockreview.net/images/bookshelf-clipart-empty-bookshelf-18.png" alt="trophy case"> -->
+
         </section>
-
-            
-        
-        <img src="https://webstockreview.net/images/bookshelf-clipart-empty-bookshelf-18.png" alt="trophy case">
-
         <main>
 
 </body>

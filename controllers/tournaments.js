@@ -16,7 +16,8 @@ function index(req, res) {
             tournaments,
             user: req.user
         });
-    });
+    })
+    .sort('-year');
 }
 
 function show(req, res) {

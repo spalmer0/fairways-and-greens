@@ -43,21 +43,33 @@
         </nav>
     </div>
     <main>
-       
-        
-       <% tournaments.forEach(function(tournament) { %>
-        <div>
-            <!-- TODO: Use flexbox here-->
-            <h3><%= tournament.name %></h3>
-            <h3><%= tournament.year %></h3>
-            <h3><%= tournament.champion %></h3>
-            <h3><a href="/tournaments/<%= tournament._id %>">Details</a></h3>
-        </div>
-      
 
-        <% });%>
-    <main>
-    
+        <h1>Tournaments</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Tournament</th>
+                    <th>Champion</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tournaments.forEach(function(tournament) { %>
+                <tr>
+                    <td><%= tournament.year %></td>
+                    <td><%= tournament.name %></td>
+                    <td><%= tournament.champion %></td>
+                    <td><a href="/tournaments/<%= tournament._id %>">Details</a></td>
+
+                </tr>
+
+                <% });%>
+
+            </tbody>
+        </table>
+        <main>
+
 </body>
 <div class="footer">
     <p>&copy; 2020 Stuart Palmer All Rights Reserved</p>

@@ -12,6 +12,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
+
 </head>
 
 <body>
@@ -43,24 +44,30 @@
         </nav>
     </div>
     <main>
+               <div class="amen">
+                <h1>Players</h1>
 
-        <% players.forEach(function(player) { %>
-        <div class="player-container">
-            <div class="player-flex">
-                <img src="<%= player.playerImg %>">
-                <h3><%= player.name %></h2>
-                <h4><a href="/players/<%= player._id %>">Details</a></h3>
-                <% if(user) {%>
-                <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete this Player</button>
-                </form>
-                <% } %>
+                <% players.forEach(function(player) { %>
+                <div class="player-container">
+
+                    <a href="/players/<%= player._id %>">
+                        <img class="plyr-img" src="<%= player.playerImg %>">
+                    </a>
+                    <h3><%= player.name %></h2>
+                        </a>
+                        <% if(user) {%>
+                        <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete this Player</button>
+                        </form>
+                        <% } %>
+
+                </div>
+
+
+                <% });%>
             </div>
-        </div>
-
-
-        <% });%>
-        <main>
+        
+    <main>
 
 </body>
 <div class="footer">
