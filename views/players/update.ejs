@@ -43,20 +43,22 @@
         </nav>
     </div>
     <main>
-       <h3>Edit Information for <%= player.name %></h3>
+        <h3>Edit Information for <%= player.name %></h3>
         <img class="update-img" src="<%= player.playerImg %>">
-        <form id="update-form" action="/players/<%= player._id %>?_method=PUT" method="POST">
-            
-            <label>Name:</label>
-            <input type="text" name="name" value="<%= player.name %>">
-            <label>Age:</label>
-            <input type="number" name="age" max=99 value="<%= player.age %>">
-            <label>Country:</label>
-            <input type="text" name="country" value="<%= player.country %>">
-            <input type="submit" value="Update Player">
-          </form>
-    <main>
-    
+        <div class="update-container">
+            <form id="update-form" action="/players/<%= player._id %>?_method=PUT" method="POST">
+
+                <label>Name:</label>
+                <input type="text" name="name" value="<%= player.name %>">
+                <label>Age:</label>
+                <input type="number" name="age" max=99 value="<%= player.age %>">
+                <label>Country:</label>
+                <input type="text" name="country" value="<%= player.country %>">
+                <input type="submit" value="Update Player">
+            </form>
+        </div>
+        <main>
+
 </body>
 <div class="footer">
     <p>&copy; 2020 Stuart Palmer All Rights Reserved</p>

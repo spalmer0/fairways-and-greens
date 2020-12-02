@@ -45,8 +45,21 @@
     margin: 10px;
     border-radius: 20px;
     border: solid 10px whitesmoke;
-    font-size: 20px;
-   
+    font-size: 20px;   
+}
+
+.update-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    max-height: 600px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    border: solid 10px whitesmoke;
+    font-size: 20px; 
 }
 
 .headshot {
